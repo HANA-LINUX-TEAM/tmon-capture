@@ -9,7 +9,6 @@ git clone https://github.com/HANA-LINUX-TEAM/tmon-capture.git
 cd tmon-capture
 ls
 
-
 chmod +x run.sh
 ./run.sh
 ```
