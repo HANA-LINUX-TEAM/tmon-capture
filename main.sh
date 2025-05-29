@@ -10,7 +10,7 @@ mkdir -p "$LOG_DIR"
 
 # 시작 시 copy-worker 백그라운드 실행
 #bash copy-worker.sh &
-COPY_PID=$!
+#COPY_PID=$!
 
 mountpoint -q "$OUTPUT_DIR" || mount -t tmpfs -o size=2G tmpfs "$OUTPUT_DIR"
 
