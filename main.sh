@@ -14,7 +14,8 @@ mkdir -p "$LOG_DIR"
 
 mountpoint -q "$OUTPUT_DIR" || mount -t tmpfs -o size=2G tmpfs "$OUTPUT_DIR"
 
-NUM_WORKERS=$(( $(nproc) * 2 ))
+# NUM_WORKERS=$(( $(nproc)*2 ))
+NUM_WORKERS=7
 
 echo "🧵 시작: 병렬 worker $NUM_WORKERS 개 실행"
 START_TS=$(date +%s)

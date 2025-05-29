@@ -57,7 +57,6 @@ while true; do
     --javascript-delay 0 \
     --load-error-handling ignore \
     --custom-header Host "$TMON_HOST" \
-    --zoom 0.75 \
     --minimum-font-size 10 \
 	--cache-dir "$WKHTML_CACHE_DIR" \
     --custom-header Host www.tmon.co.kr \
