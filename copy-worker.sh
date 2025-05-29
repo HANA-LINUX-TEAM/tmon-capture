@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SHM_DIR="/dev/shm/tmp_capture"
+SHM_DIR="/dev/shm/tmp_images"
 DEST_DIR="$HOME/tmon-capture/images"
 LOG_FILE="$HOME/tmon-capture/logs/flush.log"
 
