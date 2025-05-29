@@ -60,6 +60,7 @@ while true; do
     --zoom 0.75 \
     --minimum-font-size 10 \
 	--cache-dir "$WKHTML_CACHE_DIR" \
+    --custom-header Host www.tmon.co.kr \
     "$url" "$output_path"
 
   result=$?
