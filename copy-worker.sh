@@ -1,8 +1,15 @@
 #!/bin/bash
 
+TARGET_COUNT=$1
+if [[ -z "$TARGET_COUNT" || "$TARGET_COUNT" -le 0 ]]; then
+  echo "❌ 복사 개수 인자가 필요합니다"
+  exit 1
+fi
+
 SHM_DIR="/dev/shm/tmp_images"
 DEST_DIR="$HOME/tmon-capture/images"
 LOG_FILE="$HOME/tmon-capture/logs/flush.log"
+COPIED_COUNT=0
 
 mkdir -p "$DEST_DIR"
 
@@ -19,4 +26,11 @@ while read -r dir action filename; do
 
   echo "📥 Detected: $filename → 디스크로 복사 중..." | tee -a "$LOG_FILE"
   cp -n "$SRC_FILE" "$DEST_FILE" && echo "✅ 복사 완료: $filename" | tee -a "$LOG_FILE"
+
+  ((COPIED_COUNT++))
+  if [ "$COPIED_COUNT" -ge "$TARGET_COUNT" ]; then
+    echo "✅ $COPIED_COUNT개 이미지 복사 완료 → 종료" | tee -a "$LOG_FILE"
+    break
+  fi
+  
 done
