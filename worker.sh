@@ -34,8 +34,8 @@ while true; do
 
   url="https://${TMON_IP}/deal/${deal_id}"
   id=$(echo -n "$url" | md5sum | cut -d ' ' -f1)
-  output_path="${TMP_OUTPUT_DIR}/image_${id}.jpg"
- #output_path="${OUTPUT_DIR}/image_${id}.jpg"
+  #output_path="${TMP_OUTPUT_DIR}/image_${id}.jpg"
+ output_path="${OUTPUT_DIR}/image_${id}.jpg"
 
   # 🔧 고정 IP 가정 → 연결 확인 및 재갱신 생략
   # nc -z -w 2 "$TMON_IP" 80
