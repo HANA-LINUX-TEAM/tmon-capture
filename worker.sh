@@ -3,7 +3,7 @@
 BASE_DIR="$HOME/tmon-capture"
 OUTPUT_DIR="$BASE_DIR/images"
 LOG_DIR="$BASE_DIR/logs"
-TMP_OUTPUT_DIR="/dev/shm/tmp_capture"
+TMP_OUTPUT_DIR="/dev/shm/tmp_images"
 WKHTML_CACHE_DIR="/dev/shm/wkhtml_cache_$$"
 
 mkdir -p "$TMP_OUTPUT_DIR"
