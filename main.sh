@@ -10,6 +10,7 @@ mkdir -p "$LOG_DIR"
 
 # 시작 시 copy-worker 백그라운드 실행
 bash copy-worker.sh &
+COPY_PID=$!
 
 mountpoint -q "$OUTPUT_DIR" || mount -t tmpfs -o size=2G tmpfs "$OUTPUT_DIR"
 
@@ -22,6 +23,8 @@ for i in $(seq 1 "$NUM_WORKERS"); do
 done
 
 wait
+
+kill $COPY_PID
 
 END_TS=$(date +%s)
 TOTAL_TIME=$((END_TS - START_TS))

@@ -3,7 +3,7 @@
 BASE_DIR="$HOME/tmon-capture"
 OUTPUT_DIR="$BASE_DIR/images"
 LOG_DIR="$BASE_DIR/logs"
-TMP_OUTPUT_DIR="/dev/shm/tmp_images"
+TMP_OUTPUT_DIR="/dev/shm/tmp-capture"
 WKHTML_CACHE_DIR="/dev/shm/wkhtml_cache_$$"
 
 mkdir -p "$TMP_OUTPUT_DIR"
@@ -16,6 +16,10 @@ resolve_ip() {
 
 TMON_IP=$(resolve_ip)
 TMON_HOST="www.tmon.co.kr"
+
+# 성능 최적화용 환경 변수 설정
+export QTWEBKIT_DISABLE_JIT=1
+export QT_QPA_PLATFORM=offscreen
 
 while true; do
   entry=$(redis-cli RPOP queue:urls)
